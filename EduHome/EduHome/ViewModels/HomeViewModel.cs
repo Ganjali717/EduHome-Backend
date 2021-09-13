@@ -11,5 +11,8 @@ namespace EduHome.ViewModels
         public List<Setting> Settings { get; set; }
 
         public List<Slider> Sliders { get; set; }
+        public List<Service> Services { get; set; }
+        public List<About> Abouts { get; set; }
+        public List<Cources> Cource { get; set; }
     }
 }

@@ -38,24 +38,16 @@
 <div class="service-area two pt-150 pb-150">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="single-service">
-                    <h3><a href="teacher.html">PROFESSIONAL TEACHER</a></h3>
-                    <p>I must explain to you how all this mistaken denouncing pleure and praising pain </p>
+
+            @foreach (var item in Model.Services)
+            {
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="single-service">
+                        <h3><a href="teacher.html">@item.Title</a></h3>
+                        <p>@item.Desc </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="single-service">
-                    <h3><a href="teacher.html">PROFESSIONAL TEACHER</a></h3>
-                    <p>I must explain to you how all this mistaken denouncing pleure and praising pain </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="single-service">
-                    <h3><a href="teacher.html">PROFESSIONAL TEACHER</a></h3>
-                    <p>I must explain to you how all this mistaken denouncing pleure and praising pain </p>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>
@@ -67,14 +59,14 @@
             <div class="col-md-6 col-sm-6">
                 <div class="about-content">
                     <h2>@Html.Raw(Model.Settings.First().AboutTask)</h2>
-                    <p>I must explain to you how all this mistaken idea of denouncing pleure and prsing pain was born and I will give you a complete account of the system, and expound the actual teachings  the master-builder of humanit happiness</p>
+                    <p>@Model.Abouts.First().Desc</p>
                     <p class="hidden-sm">I must explain to you how all this mistaken idea of denouncing pleure and prsing pain was born and I will give you a complete account of the system</p>
-                    <a class="default-btn" href="about.html">view courses</a>
+                    <a class="default-btn" href="@Model.Abouts.First().RedirectURL">view courses</a>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="about-img">
-                    <img src="~/img/about/about.png" alt="about">
+                    <img src="~/img/about/@Model.Abouts.First().Image" alt="about">
                 </div>
             </div>
         </div>
@@ -87,63 +79,33 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="section-title">
-                    <img src="~/img/icon/section1.png" alt="section-title">
+                    <img src="~/img/icon/course-bg.jpg" alt="section-title">
                     <h2>COURSES WE OFFER</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-course">
-                    <div class="course-img">
-                        <a href="course-details.html">
-                            <img src="~/img/course/course1.jpg" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3><a href="course-details.html">CSE ENGINEERING</a></h3>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness</p>
-                        <a class="default-btn" href="course-details.html">read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-course">
-                    <div class="course-img">
-                        <a href="course-details.html">
-                            <img src="~/img/course/course2.jpg" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3><a href="course-details.html">political science</a></h3>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness</p>
-                        <a class="default-btn" href="course-details.html">read more</a>
+
+            @foreach (var item in Model.Cource)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-course">
+                        <div class="course-img">
+                            <a href="course-details.html">
+                                <img src="~/img/course/@item.Image" alt="course">
+                                <div class="course-hover">
+                                    <i class="fa fa-link"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="course-content">
+                            <h3><a href="course-details.html">@item.Title</a></h3>
+                            <p>@item.Desc</p>
+                            <a class="default-btn" href="@item.RedirectURL">read more</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 hidden-sm col-xs-12">
-                <div class="single-course">
-                    <div class="course-img">
-                        <a href="course-details.html">
-                            <img src="~/img/course/course3.jpg" alt="course">
-                            <div class="course-hover">
-                                <i class="fa fa-link"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="course-content">
-                        <h3><a href="course-details.html">micro biology</a></h3>
-                        <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness</p>
-                        <a class="default-btn" href="course-details.html">read more</a>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>

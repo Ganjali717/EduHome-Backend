@@ -24,12 +24,18 @@ namespace EduHome.Controllers
         {
             List<Setting> setting = _context.Settings.ToList();
             List<Slider> slider = _context.Sliders.ToList();
+            List<Service> service = _context.Services.ToList();
+            List<About> about = _context.Abouts.ToList();
+            List<Cources> cource = _context.Cource.ToList();
             
 
             HomeViewModel homeVM = new HomeViewModel
             {
                 Settings = setting,
-                Sliders = slider
+                Sliders = slider,
+                Services = service,
+                Abouts = about,
+                Cource = cource
             };
             return View(homeVM);
 

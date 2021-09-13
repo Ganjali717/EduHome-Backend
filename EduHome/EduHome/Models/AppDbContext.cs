@@ -16,6 +16,8 @@ namespace EduHome.Models
 
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Slider> Sliders { get; set; }
-
+        public DbSet<Service> Services { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Cources> Cource { get; set; }
     }
 }
