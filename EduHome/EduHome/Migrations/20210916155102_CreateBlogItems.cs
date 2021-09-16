@@ -2,31 +2,34 @@
 
 namespace EduHome.Migrations
 {
-    public partial class CreateSliderItems : Migration
+    public partial class CreateBlogItems : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Sliders",
+                name: "Blogs",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Image = table.Column<string>(maxLength: 500, nullable: true),
-                    Title = table.Column<string>(maxLength: 50, nullable: true),
-                    Desc = table.Column<string>(maxLength: 150, nullable: true),
-                    RedirectUrl = table.Column<string>(maxLength: 50, nullable: true)
+                    Icon = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true),
+                    Date = table.Column<string>(nullable: true),
+                    CommentCount = table.Column<string>(nullable: true),
+                    ByKim = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
+                    RedirectUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sliders", x => x.Id);
+                    table.PrimaryKey("PK_Blogs", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Sliders");
+                name: "Blogs");
         }
     }
 }

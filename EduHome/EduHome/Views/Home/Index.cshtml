@@ -130,31 +130,16 @@
                 <div class="notice-left-wrapper">
                     <h3>notice board</h3>
                     <div class="notice-left">
-                        <div class="single-notice-left mb-23 pb-20">
-                            <h4>5, June 2017</h4>
-                            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
+
+                        @for (int i = 0; i < Model.Notices.Count; i++)
+                        {
+                            <div class="single-notice-left mb-23 pb-20   ">
+                                <h4>@Model.Notices[i].Date</h4>
+                                <p>@Model.Notices[i].Desc </p>
+                            </div>
+                        }
+
                         </div>
-                        <div class="single-notice-left hidden-sm mb-23 pb-20">
-                            <h4>4, June 2017</h4>
-                            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                        </div>
-                        <div class="single-notice-left pb-70">
-                            <h4>3, June 2017</h4>
-                            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                        </div>
-                        <div class="single-notice-left mb-23 pb-20">
-                            <h4>5, June 2017</h4>
-                            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                        </div>
-                        <div class="single-notice-left hidden-sm mb-23 pb-20">
-                            <h4>4, June 2017</h4>
-                            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                        </div>
-                        <div class="single-notice-left pb-70">
-                            <h4>3, June 2017</h4>
-                            <p>I must explain to you how all this mistaken idea of denouncing plasure and praising pain was born and I will give you a complete </p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -173,73 +158,50 @@
             </div>
         </div>
         <div class="row">
+
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="single-event mb-35">
-                    <div class="event-img">
-                        <a href="event-details.html"><img src="~/img/event/event1.jpg" alt="event"></a>
-                    </div>
-                    <div class="event-content text-left">
-                        <h3>20 June 2017</h3>
-                        <h4><a href="event-details.html">ADVANCE PHP WORKSHOP</a></h4>
-                        <ul>
-                            <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                            <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                        </ul>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
+
+                @for (int i = 0; i < 2; i++)
+                {
+                    <div class="single-event mb-35 @((i == 1)?"hidden-sm hidden-xs":"") @((i== 2)?"mb-35 ":"")">
+                        <div class="event-img">
+                            <a href="event-details.html"><img src="~/img/event/@Model.Event[i].Image" alt="event"></a>
+                        </div>
+                        <div class="event-content text-left">
+                            <h3>@Model.Event[i].Date</h3>
+                            <h4><a href="event-details.html">@Model.Event[i].Item</a></h4>
+                            <ul>
+                                <li><i class="fa fa-clock-o"></i>@Model.Event[i].Time</li>
+                                <li><i class="fa fa-map-marker"></i>@Model.Event[i].Location</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" href="@Model.Event[i].RedirectUrl">join now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="single-event hidden-sm hidden-xs">
-                    <div class="event-img">
-                        <a href="event-details.html"><img src="~/img/event/event3.jpg" alt="event"></a>
-                    </div>
-                    <div class="event-content text-left">
-                        <h3>16 June 2017</h3>
-                        <h4><a href="event-details.html">learning english history</a></h4>
-                        <ul>
-                            <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                            <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                        </ul>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <div class="single-event mb-35">
-                    <div class="event-img">
-                        <a href="event-details.html"><img src="~/img/event/event2.jpg" alt="event"></a>
-                    </div>
-                    <div class="event-content text-left">
-                        <h3>18 June 2017</h3>
-                        <h4><a href="event-details.html">DIGITAL MARKETING ANALYSIS</a></h4>
-                        <ul>
-                            <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                            <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                        </ul>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
+
+                @for (int i = 0; i < 2; i++)
+                {
+                    <div class="single-event mb-35 @((i == 1)?"hidden-sm hidden-xs":"") @((i== 2)?"mb-35 ":"")">
+                        <div class="event-img">
+                            <a href="event-details.html"><img src="~/img/event/@Model.Event[i].Image" alt="event"></a>
+                        </div>
+                        <div class="event-content text-left">
+                            <h3>@Model.Event[i].Date</h3>
+                            <h4><a href="event-details.html">@Model.Event[i].Item</a></h4>
+                            <ul>
+                                <li><i class="fa fa-clock-o"></i>@Model.Event[i].Time</li>
+                                <li><i class="fa fa-map-marker"></i>@Model.Event[i].Location</li>
+                            </ul>
+                            <div class="event-content-right">
+                                <a class="default-btn" href="@Model.Event[i].RedirectUrl">join now</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="single-event hidden-sm hidden-xs">
-                    <div class="event-img">
-                        <a href="event-details.html"><img src="~/img/event/event3.jpg" alt="event"></a>
-                    </div>
-                    <div class="event-content text-left">
-                        <h3>14 June 2017</h3>
-                        <h4><a href="event-details.html">UI & UX DESIGNER MEETUP</a></h4>
-                        <ul>
-                            <li><i class="fa fa-clock-o"></i>9.00 AM - 4.45 PM</li>
-                            <li><i class="fa fa-map-marker"></i>New Yourk City</li>
-                        </ul>
-                        <div class="event-content-right">
-                            <a class="default-btn" href="event-details.html">join now</a>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
@@ -281,63 +243,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="~/img/blog/blog1.jpg" alt="blog"></a>
-                        <div class="blog-hover">
-                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
+
+            @foreach (var item in Model.Blogs)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12 @(item.Id == 1 && item.Id == 2?"col-sm-6":"") @(item.Id == 3 ? "hidden-sm":"")">
+                    <div class="single-blog">
+                        <div class="blog-img">
+                            <a href="blog-details.html"><img src="~/img/blog/@item.Image" alt="blog"></a>
+                            <div class="blog-hover">
+                                <a href="blog-details.html">@Html.Raw(item.Icon)</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-top">
-                            <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
-                        </div>
-                        <div class="blog-bottom">
-                            <h2><a href="blog-details.html">I must explain to you how all this a mistaken idea </a></h2>
-                            <a href="blog-details.html">read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="~/img/blog/blog2.jpg" alt="blog"></a>
-                        <div class="blog-hover">
-                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-top">
-                            <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
-                        </div>
-                        <div class="blog-bottom">
-                            <h2><a href="blog-details.html">I must explain to you how all this a mistaken idea </a></h2>
-                            <a href="blog-details.html">read more</a>
+                        <div class="blog-content">
+                            <div class="blog-top">
+                                <p>@item.ByKim  /  @item.Date  /  @Html.Raw(item.CommentCount)</p>
+                            </div>
+                            <div class="blog-bottom">
+                                <h2><a href="blog-details.html">@item.Title </a></h2>
+                                <a href="@item.RedirectUrl">read more</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 hidden-sm col-xs-12">
-                <div class="single-blog">
-                    <div class="blog-img">
-                        <a href="blog-details.html"><img src="~/img/blog/blog3.jpg" alt="blog"></a>
-                        <div class="blog-hover">
-                            <a href="blog-details.html"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-top">
-                            <p>By Alex  /  June 20, 2017  /  <i class="fa fa-comments-o"></i> 4</p>
-                        </div>
-                        <div class="blog-bottom">
-                            <h2><a href="blog-details.html">I must explain to you how all this a mistaken idea </a></h2>
-                            <a href="blog-details.html">read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>

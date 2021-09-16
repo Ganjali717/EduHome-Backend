@@ -27,6 +27,9 @@ namespace EduHome.Controllers
             List<Service> service = _context.Services.ToList();
             List<About> about = _context.Abouts.ToList();
             List<Cources> cource = _context.Cource.ToList();
+            List<Notice> notice = _context.Notices.ToList();
+            List<Events> events = _context.Event.ToList();
+            List<Blog> blog = _context.Blogs.ToList();
             
 
             HomeViewModel homeVM = new HomeViewModel
@@ -35,7 +38,10 @@ namespace EduHome.Controllers
                 Sliders = slider,
                 Services = service,
                 Abouts = about,
-                Cource = cource
+                Cource = cource,
+                Notices = notice,
+                Event = events,
+                Blogs = blog
             };
             return View(homeVM);
 

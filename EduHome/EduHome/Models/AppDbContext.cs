@@ -19,5 +19,8 @@ namespace EduHome.Models
         public DbSet<Service> Services { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Cources> Cource { get; set; }
+        public DbSet<Notice> Notices { get; set; }
+        public DbSet<Events> Event { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
     }
 }
